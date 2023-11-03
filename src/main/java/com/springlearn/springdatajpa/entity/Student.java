@@ -56,7 +56,7 @@ public class Student {
     // Think of it this way: @SequenceGenerator is like giving a name to your
     // magical spell, and @GeneratedValue is the incantation you use on the
     // "studentId" field to pickup up unique student IDs.
-    @SequenceGenerator(name = "student_id_sequence", sequenceName = "student_id_sequence", allocationSize = 1)
+    @SequenceGenerator(name = "student_id_sequences", sequenceName = "student_id_sequence", allocationSize = 1)
     @GeneratedValue(generator = "student_id_sequence")
     private Long studentId;
 
