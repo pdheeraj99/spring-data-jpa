@@ -29,19 +29,26 @@ public class SpringDataJpaApplication {
 		@Override
 		public void run(String... args) throws Exception {
 
-			Guardian guardian = Guardian.builder()
-					.name("guardian2")
-					.email("guardian2@gmail.com")
-					.mobile("1234567890")
-					.build();
+			// By default only findByID is there
+			// But we need to implement findByFirstName, findByLastName....etc etc if we
+			// required
+			// in Student Repository
 
-			Student student = Student.builder()
-					.emailId("second@gmail.com")
-					.firstName("second")
-					.lastName("member")
-					.guardian(guardian)
-					.build();
-			studentRepository.save(student);
+			studentRepository.findById(1L).ifPresent(student -> System.out.println(student.getFirstName()));
+
+			// Guardian guardian = Guardian.builder()
+			// .name("guardian2")
+			// .email("guardian2@gmail.com")
+			// .mobile("1234567890")
+			// .build();
+
+			// Student student = Student.builder()
+			// .emailId("second@gmail.com")
+			// .firstName("second")
+			// .lastName("member")
+			// .guardian(guardian)
+			// .build();
+			// studentRepository.save(student);
 
 			// List<Student> students = studentRepository.findAll();
 			// System.out.println("Students: " + students);
