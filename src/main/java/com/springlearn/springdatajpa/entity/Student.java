@@ -1,6 +1,9 @@
 package com.springlearn.springdatajpa.entity;
 
+import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails.Address;
+
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -67,9 +70,9 @@ public class Student {
     @Column(name = "email_address", nullable = false)
     private String emailId;
 
-    private String guardianName;
+    // So instead of keeping all address related fields here and making it messy ,
+    // just separate address into separate class and embedded those fields here
 
-    private String guardianEmail;
-
-    private String guardingMobile;
+    @Embedded
+    private Guardian guardian;
 }
