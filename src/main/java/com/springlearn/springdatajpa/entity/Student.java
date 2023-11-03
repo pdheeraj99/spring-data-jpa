@@ -1,7 +1,5 @@
 package com.springlearn.springdatajpa.entity;
 
-import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails.Address;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
