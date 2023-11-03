@@ -70,8 +70,8 @@ public class Student {
     @Column(name = "email_address", nullable = false)
     private String emailId;
 
-    // So instead of keeping all address related fields here and making it messy ,
-    // just separate address into separate class and embedded those fields here
+    // So instead of keeping all guardian related fields here and making it messy ,
+    // just separate guardian into separate class and embedded those fields here
 
     @Embedded
     private Guardian guardian;
