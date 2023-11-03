@@ -1,5 +1,7 @@
 package com.springlearn.springdatajpa;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -27,7 +29,6 @@ public class SpringDataJpaApplication {
 
 		@Override
 		public void run(String... args) throws Exception {
-
 			Student student = Student.builder()
 					.emailId("dheeraj@gmail.com")
 					.firstName("dheeraj")
@@ -37,6 +38,9 @@ public class SpringDataJpaApplication {
 					.guardingMobile("9999999999")
 					.build();
 			studentRepository.save(student);
+
+			List<Student> students = studentRepository.findAll();
+			System.out.println("Students: " + students);
 		}
 	}
 
