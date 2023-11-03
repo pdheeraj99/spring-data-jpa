@@ -11,4 +11,9 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     List<Student> findByEmailId(String emailId);
 
     List<Student> findByFirstName(String firstName);
+
+    // findBy<field_name><properties>
+    // findBy<FirstName><Containing>
+    // Student findByFirstNameContaining(String name);
+
 }
