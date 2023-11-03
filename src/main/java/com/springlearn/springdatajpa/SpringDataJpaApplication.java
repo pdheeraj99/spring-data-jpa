@@ -1,5 +1,7 @@
 package com.springlearn.springdatajpa;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -34,7 +36,13 @@ public class SpringDataJpaApplication {
 			// required
 			// in Student Repository
 
-			studentRepository.findById(1L).ifPresent(student -> System.out.println(student.getFirstName()));
+			// studentRepository.findById(1L).ifPresent(student ->
+			// System.out.println(student.getFirstName()));
+
+			List<Student> students = studentRepository.findByFirstName("second");
+			students.forEach(student -> {
+				System.out.println(student.getFirstName());
+			});
 
 			// Guardian guardian = Guardian.builder()
 			// .name("guardian2")
