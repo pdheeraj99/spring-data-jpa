@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Entity
 // This annotation specifies the name of the database table that the entity will
 // be mapped to. In this case, the table name is "student"
-@Table(name = "tbl_student", uniqueConstraints = {
+@Table(name = "student_table", uniqueConstraints = {
         @UniqueConstraint(name = "student_email_unique", columnNames = "email_address")
 })
 // This annotation is provided by the Lombok library and automatically generates
