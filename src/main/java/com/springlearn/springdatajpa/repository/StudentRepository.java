@@ -2,6 +2,7 @@ package com.springlearn.springdatajpa.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.springlearn.springdatajpa.entity.Student;
@@ -38,5 +39,9 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     // first_name - underlying database attribute
     @Query(value = "SELECT * FROM student_table WHERE first_name = ?1", nativeQuery = true)
     Student getStudentByFirstNameNative(String firstName);
+
+    // *** Native SQL Named Param
+    @Query(value = "SELECT * FROM student_table WHERE first_name = :firstName", nativeQuery = true)
+    Student getStudentByFirstNameNativeNamedParam(@Param("firstName") String firstName);
 
 }

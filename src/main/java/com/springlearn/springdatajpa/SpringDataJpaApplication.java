@@ -38,6 +38,10 @@ public class SpringDataJpaApplication {
 			// Native SQL Key
 			Student st1 = studentRepository.getStudentByFirstNameNative("first");
 			System.out.println(st1);
+
+			// Native SQL Named Param
+			Student st2 = studentRepository.getStudentByFirstNameNativeNamedParam("first");
+			System.out.println(st2);
 		}
 	}
 
