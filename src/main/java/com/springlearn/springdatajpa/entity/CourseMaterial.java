@@ -26,7 +26,8 @@ public class CourseMaterial {
    private Long courseMaterialId;
    private String url;
 
-   // "course_id" is the name of the foreign key column in the CourseMaterial
+   // In Join Column Annotation "course_id" is the name of the foreign key column
+   // in the CourseMaterial
    // table, and "courseId" is the name of the column in the Course table that the
    // foreign key column is referencing.
 
