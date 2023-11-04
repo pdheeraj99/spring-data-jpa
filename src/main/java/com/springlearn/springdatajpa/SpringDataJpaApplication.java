@@ -9,8 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
-import com.springlearn.springdatajpa.entity.Course;
-import com.springlearn.springdatajpa.entity.CourseMaterial;
+// import com.springlearn.springdatajpa.entity.Course;
+// import com.springlearn.springdatajpa.entity.CourseMaterial;
 import com.springlearn.springdatajpa.repository.CourseMaterialRepository;
 
 @SpringBootApplication
@@ -31,10 +31,13 @@ public class SpringDataJpaApplication {
 
 		@Override
 		public void run(String... args) throws Exception {
-			Course course = Course.builder().title("third").credit(3).build();
-			CourseMaterial courseMaterial = CourseMaterial.builder().url("url3").course(course).build();
+			// Course course = Course.builder().title("third").credit(3).build();
+			// CourseMaterial courseMaterial =
+			// CourseMaterial.builder().url("url3").course(course).build();
 
-			courseMaterialRepository.save(courseMaterial);
+			// courseMaterialRepository.save(courseMaterial);
+
+			courseMaterialRepository.findAll().forEach(s -> System.out.println(s));
 		}
 	}
 
