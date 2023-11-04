@@ -1,22 +1,23 @@
 package com.springlearn.springdatajpa;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 // import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
-// import com.springlearn.springdatajpa.entity.Guardian;
-import com.springlearn.springdatajpa.entity.Student;
-import com.springlearn.springdatajpa.repository.StudentRepository;
+import com.springlearn.springdatajpa.entity.Course;
+import com.springlearn.springdatajpa.entity.CourseMaterial;
+import com.springlearn.springdatajpa.repository.CourseMaterialRepository;
 
 @SpringBootApplication
 public class SpringDataJpaApplication {
 
 	@Autowired
-	private StudentRepository studentRepository;
+	CourseMaterialRepository courseMaterialRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringDataJpaApplication.class, args);
@@ -30,20 +31,10 @@ public class SpringDataJpaApplication {
 
 		@Override
 		public void run(String... args) throws Exception {
+			Course course = Course.builder().title("third").credit(3).build();
+			CourseMaterial courseMaterial = CourseMaterial.builder().url("url3").course(course).build();
 
-			// JPQL Way
-			Student st = studentRepository.getStudentByFirstName("second");
-			System.out.println(st);
-
-			// Native SQL Key
-			Student st1 = studentRepository.getStudentByFirstNameNative("first");
-			System.out.println(st1);
-
-			// Native SQL Named Param
-			Student st2 = studentRepository.getStudentByFirstNameNativeNamedParam("first");
-			System.out.println(st2);
-
-			studentRepository.updateStudentNameByEmailId("first1", "first@gmail.com");
+			courseMaterialRepository.save(courseMaterial);
 		}
 	}
 
