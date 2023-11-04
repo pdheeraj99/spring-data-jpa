@@ -42,6 +42,8 @@ public class SpringDataJpaApplication {
 			// Native SQL Named Param
 			Student st2 = studentRepository.getStudentByFirstNameNativeNamedParam("first");
 			System.out.println(st2);
+
+			studentRepository.updateStudentNameByEmailId("first1", "first@gmail.com");
 		}
 	}
 
