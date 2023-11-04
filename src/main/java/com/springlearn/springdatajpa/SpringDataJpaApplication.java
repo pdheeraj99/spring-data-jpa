@@ -12,12 +12,16 @@ import org.springframework.stereotype.Component;
 // import com.springlearn.springdatajpa.entity.Course;
 // import com.springlearn.springdatajpa.entity.CourseMaterial;
 import com.springlearn.springdatajpa.repository.CourseMaterialRepository;
+import com.springlearn.springdatajpa.repository.CourseRepository;
 
 @SpringBootApplication
 public class SpringDataJpaApplication {
 
 	@Autowired
 	CourseMaterialRepository courseMaterialRepository;
+
+	@Autowired
+	CourseRepository courseRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringDataJpaApplication.class, args);
@@ -37,7 +41,9 @@ public class SpringDataJpaApplication {
 
 			// courseMaterialRepository.save(courseMaterial);
 
-			courseMaterialRepository.findAll().forEach(s -> System.out.println(s));
+			// courseMaterialRepository.findAll().forEach(s -> System.out.println(s));
+
+			courseRepository.findAll().forEach(s -> System.out.println(s));
 		}
 	}
 
